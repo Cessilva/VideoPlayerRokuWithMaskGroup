@@ -1,0 +1,34 @@
+maskUri
+Especifica el mapa de bits que se usará para la máscara alfa del grupo. 
+El valor alfa de cada píxel representado en el grupo se multiplica por el valor de un píxel en la máscara alfa. 
+La asignación de coordenadas de píxeles en el grupo para enmascarar coordenadas de píxeles 
+se controla mediante los valores de campo maskSize y maskOffset. 
+
+Esos campos definen un sistema de coordenadas para el mapa de bits de la máscara en relación 
+con el sistema de coordenadas del grupo. Este sistema de coordenadas de máscara se utiliza para 
+asignar píxeles de máscara a sus píxeles correspondientes en el nodo MaskGroup.
+
+maskSize
+Especifica un factor de escala del sistema de coordenadas de la máscara alfa en relación 
+con el sistema de coordenadas del grupo. 
+Si alguno de los elementos del valor del campo maskSize no coincide con el tamaño 
+correspondiente del bitmap de la máscara, el bitmap de la máscara se escala al tamaño
+especificado en la dimensión. 
+Establecer cualquiera de los elementos del vector de campo maskSize en 0 hace que el bitmap
+de máscara se use en su tamaño real en esa dimensión
+
+maskOffset
+Especifica un desplazamiento del sistema de coordenadas de la máscara en relación 
+con el sistema de coordenadas del grupo. Por ejemplo, si el valor del campo maskOffset 
+se establece en [100, 0], el píxel de máscara [0, 0] se usa como el valor alfa para 
+los píxeles representados para la coordenada de nodo MaskGroup [100, 0]
+
+maskBitmapWidth
+Contiene el ancho real del bitmap de la máscara. 
+El bitmap de la máscara se puede estirar horizontalmente estableciendo la dimensión x 
+del valor del campo maskSize en un valor diferente al valor del campo maskBitmapWidth
+
+maskBitmapHeight
+Contiene la altura real del bitmap de la máscara. El bitmap de la máscara se puede
+estirar verticalmente estableciendo la dimensión y del valor del campo maskSize en 
+un valor diferente al valor del campo maskBitmapHeight
