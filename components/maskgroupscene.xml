@@ -3,20 +3,7 @@
 <!--********** Copyright 2016 Roku Corp.  All Rights Reserved. **********-->
 
 <component name = "MaskGroupExample" extends = "Scene" >
-
-  <script type = "text/brightscript" >
-
-    <![CDATA[
-
-    sub init()
-      example = m.top.findNode("examplePoster")
-      m.top.setFocus(true)
-    end sub
-
-    ]]>
-
-  </script>
-
+<script uri="pkg:/components/maskgroupscene.brs" type="text/brightscript"/>
   <children>
 <!-- masksize:La escala y corta de arriba hacia abajo
 Ejemplo:
@@ -39,7 +26,7 @@ maskOffset="[0,20]" no importa el primero , y lo otro lo corta de abajo a abbiba
       <!--  translation="[2,0]" Asi en el eje 0,0 -->
         <Poster 
           id = "examplePoster" 
-          translation="[-200,0]"
+          translation="[2,0]"
           width = "2000" 
           height = "2024" 
           uri = "pkg:/images/logo3.png">
