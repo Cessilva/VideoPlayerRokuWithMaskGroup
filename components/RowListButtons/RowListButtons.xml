@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<component name="RowListButtons" extends="Group" > 
+<!-- BrightScript Portion -->
+<interface>
+    <field id="content" type="node" alias="myRowListButtons.content" />
+    <field id="mostrarLabel" type="boolean" value="false" onChange="mostrarLabel"/>
+    <field id="elements" type="float"/>
+    <field id="numFilas" type="float" value="1" alias="myRowListButtons.numRows"  />
+
+    <field alias="myRowListButtons.rowItemSelected" type="intarray" id="rowItemSelected" alwaysnotify="true"/>
+    <field onChange="OnItemFocused" alwaysnotify="true" alias="myRowListButtons.rowItemFocused" type="intarray" id="itemFocused"/>
+    <field alias="myRowListButtons.rowItemSize" type="intarray" id="rowItemSize" alwaysnotify="true"/>
+    <field id="letra" type="string" alwaysnotify="true" />
+    <field type="node" id="focusedContent"/>
+    <field type="string" id="titulo" alwaysnotify="true"/>
+    <field type="float" id="fatherWidth" alwaysnotify="true" onChange="centerToFather"/>
+    <field type="float" id="heightComponent" alwaysnotify="true" onChange="centerToFather"/>
+    
+</interface>
+<script type="text/brightscript" uri="pkg:/components/RowListButtons/RowListButtons.brs"></script>
+<children>
+<RowList 
+      id = "myRowListButtons" 
+      itemComponentName = "RowListItemButtons"
+      rowItemSpacing="[[5,0]]"
+      rowItemSize = "[ [120, 60] ]" 
+      itemSpacing="[0,30]"
+      drawFocusFeedback = "false" 
+      rowFocusAnimationStyle = "fixedFocusWrap"
+      vertFocusAnimationStyle="floatingFocus"  />
+</children>
+</component>

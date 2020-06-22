@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<component name="Consulta" extends="Group" >
+    <interface>
+        <field id="content" type="string" alias="LabelInfo.text"/> 
+        <field id="orientation" type="boolean" value="false" onChange="CambiaOrientacion"/>
+        <field id="heightConsulta" type="float" />
+    </interface>
+    <script type="text/brightscript" uri="pkg:/components/Consulta/Consulta.brs" />    
+    <children>
+        <Label
+        id="LabelInfo"
+        height="44"
+        width="0"
+        font="font:MediumBoldSystemFont"
+        text="Presiona hacia abajo para ver las opciones"
+        horizAlign = "left"
+        vertAlign = "center" />
+        <Poster
+        id="testPoster"
+        width="30"
+        height="30"
+        uri="pkg:/images/flechaAbajo.png"/>
+    </children>
+</component>
+
