@@ -24,10 +24,21 @@
 				color = "0x000000"
 				opacity = ".8"
 				translation = "[0,550]">
-				<Poster
-					id="testPoster"
-					width="200.0"
-					height="150.0" />
+				<MaskGroup 
+					translation="[100,50]"
+					id = "testPoster" 
+					maskBitmapWidth="0"
+					maskBitmapHeight="0"
+					maskSize="[0,300]"
+					maskuri = "pkg:/images/disenoj.png" >
+					<Poster 
+						id = "examplePoster" 
+						translation="[2,0]"
+						width = "2000" 
+						height = "2024" 
+						uri = "pkg:/images/logo3.png">
+					</Poster>
+				</MaskGroup>
 			<!-- Raya roja color = "0xff0000"-->
 				<Rectangle
 					id = "TimeBarBack"

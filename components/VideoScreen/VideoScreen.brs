@@ -21,7 +21,9 @@ function setVideo() as void
   m.RewindAnim=m.top.findNode("RewindAnim")
   m.FFAnim=m.top.findNode("FFAnim")
   m.testPoster=m.top.findNode("testPoster")
-  m.testPoster.uri="pkg:/images/unicorn/00000002.jpg"
+  m.posters = m.top.findNode("examplePoster")
+  m.dx=0
+  m.dy=0
   centerx=(m.PlayBar.width-m.TimeBarBack.width)/2
   m.TimeBarBack.translation = [centerx,100]
   m.AudioCurrent.translation=[centerx-m.AudioCurrent.width+10,100-m.AudioCurrent.height]
@@ -90,8 +92,21 @@ sub skip10Seconds()
             m.TimerAnim.duration =1
             m.TimerAnim.control = "start"
             m.video.seek=m.video.position
-            imagen= convierteImagen((m.video.position/10)\1)
-            m.testPoster.uri="pkg:/images/unicorn/"+imagen+".jpg"
+            'imagen= convierteImagen((m.video.position/10)\1)
+            ' m.testPoster.uri="pkg:/images/unicorn/"+imagen+".jpg"
+            if m.dx<9 then
+            m.dx=m.dx+1
+            anteriorx= m.posters.translation[0]
+            m.posters.translation=[anteriorx-200,m.posters.translation[1]]
+            else
+                ?"salto de derecha hacia abajo"
+                m.dy=m.dy+1
+                m.dx=0
+                anteriory=m.posters.translation[1]
+                anteriorx=m.posters.translation[0]
+                print anteriorx
+                m.posters.translation=[0,anteriory-(2024/18)]
+            end if
         else
             print "No puedo avanzar"
             m.video.position=m.top.tiempoTotal
@@ -111,8 +126,19 @@ sub skip10Seconds()
             m.TimerAnim.duration =1
             m.TimerAnim.control = "start"
             m.video.seek=m.video.position
-            imagen= convierteImagen((m.video.position/10)\1)
-            m.testPoster.uri="pkg:/images/unicorn/"+imagen+".jpg"
+            'imagen= convierteImagen((m.video.position/10)\1)
+            'm.testPoster.uri="pkg:/images/unicorn/"+imagen+".jpg"
+            if m.dx=0 then
+            m.dy=m.dy-1
+            m.dx=10
+            anteriory=m.posters.translation[1]
+            m.posters.translation=[-1798,anteriory+(2024/18)]  
+            else 
+            ?"salto de izquierda hacia arriba"
+                m.dx=m.dx-1
+                anteriorx= m.posters.translation[0]
+                m.posters.translation=[anteriorx+200,m.posters.translation[1]] 
+            end if
         else
             print "No puedo retrocede por que ya se acabo el video"
             posicionInicial=[m.video.position*(m.TimeBarBack.width/m.top.tiempoTotal),0]
