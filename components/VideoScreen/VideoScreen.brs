@@ -24,6 +24,7 @@ function setVideo() as void
   m.posters = m.top.findNode("examplePoster")
   m.dx=0
   m.dy=0
+   m.pausada=false
   centerx=(m.PlayBar.width-m.TimeBarBack.width)/2
   m.TimeBarBack.translation = [centerx,100]
   m.AudioCurrent.translation=[centerx-m.AudioCurrent.width+10,100-m.AudioCurrent.height]
@@ -32,13 +33,29 @@ function setVideo() as void
   m.RectangleControls.translation=[(m.PlayBar.width-medidaRectangleControls.width)/2,20]
   m.AudioCurrent.text=secondsToHours(0)
   m.TimerAnim.control="stop"
-  m.control.visible="false"
+'   m.control.visible="false"
+m.control.visible="true"
   m.TimeBarFront.observeField("translation","cambiaPosicionImagen")
+  m.video.observeField("position","cambiaTraslacionImagen")
 end function
 sub cambiaPosicionImagen()
 traslacion=m.TimeBarFront.translation
 m.testPoster.translation=[traslacion[0]+30,-75]
 end sub
+sub cambiaTraslacionImagen()
+if m.pausada=false then
+    fila=((m.video.position/100)\1)*(-2024/18)
+    columna=(right(((m.video.position/10)\1).ToStr(),1).toInt())*(-200)
+    if fila=-0 then
+    fila=0
+    end if
+    print "Fila:::::::::::::::::::::::."
+    print fila
+    print "Columna::::::::::::::::::::."
+    print columna
+    m.posters.translation=[columna,fila] 
+end if
+end sub 
 sub muestraControl()
 if m.video.control="pause" then 
 m.control.visible="true"
