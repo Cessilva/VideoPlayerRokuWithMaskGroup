@@ -3,6 +3,8 @@
     m.consulta=m.top.findNode("Consulta")
     m.consulta.content="Presiona hacia abajo para mas opciones"
     m.options= m.top.findNode("Options")
+    m.VideoOptions=m.top.findNode("VideoOptions")
+    m.VideoOptions.visible="false"
     m.consulta.visible="false"
     m.options.visible="false"
     m.videoPlayer=m.top.findNode("VideoPlayer")
@@ -16,6 +18,7 @@
   m.videoPlayer.setFocus(true)
   m.consulta.visible="false"
   m.options.visible="false"
+  m.VideoOptions.visible="false"  
   m.videoPlayer.videoControl="resume"
   end if 
   end sub
@@ -41,12 +44,18 @@
     else if (key = "down") then
       ?"ABAJO"
       ?"label no visible, aparece options y se le asigna el focus"
+      if m.VideoOptions.hasfocus() then
+      m.VideoOptions.visible="false"
+      m.videoPlayer.videoControl="resume"
+      m.top.setFocus(true)
+      else
       m.consulta.visible="false"
       m.options.visible="true"
       m.videoPlayer.videoControl="pause"
       m.options.setFocus(true)
       m.options.hasFocus=true
       handled = true
+      end if
     else if (key="left") then 
       ?"izquierda"
       m.videoPlayer.videoControl="pause"
@@ -57,6 +66,11 @@
       m.videoPlayer.videoControl="pause"
       m.videoPlayer.skip10Seconds="true"
       m.consulta.visible="true"
+    else if (key="replay") then 
+      ?"Opcioneses"
+      m.videoPlayer.videoControl="pause"
+      m.VideoOptions.setFocus(true)
+      m.VideoOptions.visible="true"
     end if
   end if
   return handled

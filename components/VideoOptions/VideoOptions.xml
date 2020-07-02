@@ -1,0 +1,14 @@
+<?xml version = "1.0" encoding = "utf-8" ?>
+<component name = "VideoOptions" extends = "Group" >
+<script uri="pkg:/components/VideoOptions/VideoOptions.brs" type="text/brightscript"/>
+  <children>
+    <Poster 
+        id = "examplePoster" 
+        translation="[2,0]"
+        width = "2000" 
+        height = "2024" 
+        uri = "pkg:/images/rosa.jpg">
+    </Poster>
+  </children>
+
+</component>

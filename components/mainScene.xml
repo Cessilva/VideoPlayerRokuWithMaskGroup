@@ -5,6 +5,6 @@
 	<VideoScreen id="VideoPlayer"/>
 	<Consulta id="Consulta"/>
 	<Options id="Options"/>
-	
+	<VideoOptions id="VideoOptions"/>	
 </children>
 </component>
