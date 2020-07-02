@@ -5,6 +5,9 @@
         <field id="recorrido" type="integer"  alias="VideoPlayer.position" onChange="recorreReloj"/>
         <field id="tiempoTotal" type="integer" alias="VideoPlayer.duration" onChange="asignaDuration"/>
         <field id="skip10Seconds" type="boolean" onChange="skip10Seconds" alwaysnotify="true"/>
+		<field id="thumbnailVisible" type="boolean" onChange="changeVisibility" alwaysnotify="true"/>
+		<field id="controlVisible" type="boolean" onChange="changeVisibility" alwaysnotify="true"/>
+		
     </interface>
     <script type="text/brightscript" uri="pkg:/components/VideoScreen/VideoScreen.brs" />
     <children>

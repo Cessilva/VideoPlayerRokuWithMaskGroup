@@ -38,6 +38,18 @@ m.control.visible="true"
   m.TimeBarFront.observeField("translation","cambiaPosicionImagen")
   m.video.observeField("position","cambiaTraslacionImagen")
 end function
+function changeVisibility()
+    if m.top.controlVisible=true then
+    m.control.visible="true"
+    else 
+    m.control.visible="false"
+    end if
+    if m.top.thumbnailVisible=true then
+    m.testPoster.visible="true"
+    else 
+    m.testPoster.visible="false"
+    end if
+end function 
 sub cambiaPosicionImagen()
 traslacion=m.TimeBarFront.translation
 m.testPoster.translation=[traslacion[0]+30,-75]
@@ -49,10 +61,10 @@ if m.pausada=false then
     if fila=-0 then
     fila=0
     end if
-    print "Fila:::::::::::::::::::::::."
-    print fila
-    print "Columna::::::::::::::::::::."
-    print columna
+    ' print "Fila:::::::::::::::::::::::."
+    ' print fila
+    ' print "Columna::::::::::::::::::::."
+    ' print columna
     m.posters.translation=[columna,fila] 
 end if
 end sub 

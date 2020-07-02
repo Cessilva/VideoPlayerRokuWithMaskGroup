@@ -116,8 +116,6 @@ Function Init()
     m.myRowListIdiomas.numFilas=2
     m.myRowListIdiomas.mostrarLabel=true
     m.myRowListIdiomas.elements=4
-
-
     'Medidas
     medida= m.rectanglePrincipal.boundingRect()
     m.rectanglePrincipal.height=medida.height

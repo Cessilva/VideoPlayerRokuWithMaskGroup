@@ -32,9 +32,12 @@
     ' print counter
       ?"HOLA"
       ?"status video:stop and label visible"
+      m.videoPlayer.thumbnailVisible="false"
+      m.videoPlayer.controlVisible="true"
       if m.counter mod 2 = 0 then
       m.videoPlayer.videoControl="pause"
       m.consulta.visible="true"
+      
       ?"Pauso"
       else 
       m.videoPlayer.videoControl="resume"
@@ -47,6 +50,8 @@
       if m.VideoOptions.hasfocus() then
       m.VideoOptions.visible="false"
       m.videoPlayer.videoControl="resume"
+  
+      m.VideoOptions.setFocus(false)
       m.top.setFocus(true)
       else
       m.consulta.visible="false"
@@ -54,15 +59,18 @@
       m.videoPlayer.videoControl="pause"
       m.options.setFocus(true)
       m.options.hasFocus=true
+      m.videoPlayer.controlVisible="false"
       handled = true
       end if
     else if (key="left") then 
       ?"izquierda"
+      m.videoPlayer.thumbnailVisible="true"
       m.videoPlayer.videoControl="pause"
       m.videoPlayer.skip10Seconds="false"
       m.consulta.visible="true"
     else if (key="right") then 
       ?"derecha"
+      m.videoPlayer.thumbnailVisible="true"
       m.videoPlayer.videoControl="pause"
       m.videoPlayer.skip10Seconds="true"
       m.consulta.visible="true"
@@ -71,6 +79,7 @@
       m.videoPlayer.videoControl="pause"
       m.VideoOptions.setFocus(true)
       m.VideoOptions.visible="true"
+      m.videoPlayer.controlVisible="false"
     end if
   end if
   return handled
