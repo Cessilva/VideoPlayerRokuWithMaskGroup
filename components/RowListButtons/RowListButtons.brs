@@ -17,7 +17,7 @@ end sub
 
 sub centerToFather()
 width=m.top.fatherWidth
-m.myRowList.itemSize=[(m.myRowList.rowItemSize[0][0]*m.top.elements+m.myRowList.rowItemSpacing[0][0]*m.top.elements),70]
+m.myRowList.itemSize=[(m.myRowList.rowItemSize[0][0]*m.top.elements+m.myRowList.rowItemSpacing[0][0]*m.top.elements),m.myRowList.rowItemSize[0][1]]
 m.myRowList.translation=[((width - m.myRowList.itemSize[0]) / 2),m.top.heightComponent]
 end sub
 

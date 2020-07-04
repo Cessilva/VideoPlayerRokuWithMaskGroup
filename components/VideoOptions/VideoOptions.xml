@@ -1,9 +1,9 @@
 <?xml version = "1.0" encoding = "utf-8" ?>
 <component name = "VideoOptions" extends = "Group" >
+
 <script uri="pkg:/components/VideoOptions/VideoOptions.brs" type="text/brightscript"/>
   <children>
-    <RowListButtons id="myRowListVideoOptions"/> 
+      <RowListButtons id="myRowListOptions" translation="[655,380]"/>
     <Consulta id="Consulta"/>
   </children>
-
 </component>
