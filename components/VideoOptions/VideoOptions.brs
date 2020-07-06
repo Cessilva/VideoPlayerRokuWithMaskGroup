@@ -39,17 +39,12 @@ m.myRowListOptions.numFilas=1
 m.myRowListOptions.mostrarLabel=true
 m.myRowListOptions.nameComponent="RowListItemOptions"
 m.myRowListOptions.itemSize=[[160,140]]
-
 medidaRowListOptions=m.myRowListOptions.boundingRect()
-
 m.myRowListOptions.heightComponent=medidaRowListOptions.height
-m.myRowListOptions.observeField("hasFocus","imprimeAncho")
+print "Ancho de rowlistOptions"
+print m.myRowListOptions.width
 end sub
-sub imprimeAncho()
-print "-------------------------"
-print m.myRowListOptions.boundingRect()
 
-end sub
 function parseContent(list As Object)
     ContentNode_object = createObject("RoSGNode","ContentNode")
     for each objeto in list

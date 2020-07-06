@@ -27,6 +27,7 @@
       rowItemSpacing="[[8,0]]"
       itemSpacing="[0,30]"
       drawFocusFeedback = "false" 
+      rowLabelFont="font:LargeBoldSystemFont"
       rowFocusAnimationStyle = "fixedFocusWrap"
       vertFocusAnimationStyle="floatingFocus"  />
 </children>
