@@ -11,10 +11,12 @@
     m.videoPlayer.videoControl="play"
     m.counter=1
     m.options.observeField("salida", "salidaOpciones")
+    m.VideoOptions.observeField("salida", "salidaOpciones")
+    m.VideoOptions.titulo=m.options.nodoContenido.title
   end function
 
   sub salidaOpciones()
-  if m.options.salida=true then
+  if m.options.salida=true or m.VideoOptions.salida=true then
   m.videoPlayer.setFocus(true)
   m.consulta.visible="false"
   m.options.visible="false"
@@ -29,8 +31,6 @@
   if press then
     if (key = "OK") then
     m.counter++
-    ' print counter
-      ?"HOLA"
       ?"status video:stop and label visible"
       m.videoPlayer.thumbnailVisible="false"
       m.videoPlayer.controlVisible="true"
@@ -47,15 +47,15 @@
     else if (key = "down") then
       ?"ABAJO"
       ?"label no visible, aparece options y se le asigna el focus"
-      if m.VideoOptions.hasfocus() then
+      if m.VideoOptions.isinfocuschain() then
       m.VideoOptions.visible="false"
       m.videoPlayer.videoControl="resume"
-  
       m.VideoOptions.setFocus(false)
       m.top.setFocus(true)
       else
       m.consulta.visible="false"
       m.options.visible="true"
+      m.VideoOptions.visible="false"
       m.videoPlayer.videoControl="pause"
       m.options.setFocus(true)
       m.options.hasFocus=true
@@ -76,6 +76,7 @@
       m.consulta.visible="true"
     else if (key="replay") then 
       ?"Opcioneses"
+       m.VideoOptions.hasFocus=true
       m.videoPlayer.videoControl="pause"
       m.VideoOptions.setFocus(true)
       m.VideoOptions.visible="true"

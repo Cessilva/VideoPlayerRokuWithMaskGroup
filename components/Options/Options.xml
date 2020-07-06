@@ -3,6 +3,7 @@
     <interface>
         <field id="hasFocus" type="boolean" onChange="asignaFocus" alwaysNotify="true"/>
         <field id="salida" type="boolean" alwaysNotify="true"/>
+        <field id="nodoContenido" type="node"/>
     </interface>
     <script type="text/brightscript" uri="pkg:/components/Options/Options.brs" />    
     <children>

@@ -37,8 +37,8 @@ sub onFocusChange()
         m.frame.color = "#0096d2"
         m.bg.color="#0096d2"
     else
-        m.frame.color = "#000000"
-        m.bg.color="#000000"
+        m.frame.color = "#3c3c3c"
+        m.bg.color="#3c3c3c"
     end if
 end sub
 

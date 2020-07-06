@@ -2,7 +2,7 @@ sub init()
 m.consulta=m.top.findNode("Consulta")
 m.consulta.content="Presiona hacia abajo para salir"
 m.consulta.heightConsulta="580"
-botones=[
+m.botones=[
       {Title:"Grabar temporada"
       SDPosterUrl:"pkg:/images/cine.png"
       }
@@ -27,8 +27,8 @@ botones=[
       ]
     listaBotones= [
         {
-            Title: "Lista de botones de eleccion"
-            ContentList: botones
+            Title: "Avengers End-Game"
+            ContentList: m.botones
         }
     ]
 contentBotones = parseContent(listaBotones)
@@ -43,9 +43,13 @@ m.myRowListOptions.itemSize=[[160,140]]
 medidaRowListOptions=m.myRowListOptions.boundingRect()
 
 m.myRowListOptions.heightComponent=medidaRowListOptions.height
+m.myRowListOptions.observeField("hasFocus","imprimeAncho")
+end sub
+sub imprimeAncho()
+print "-------------------------"
+print m.myRowListOptions.boundingRect()
 
 end sub
-
 function parseContent(list As Object)
     ContentNode_object = createObject("RoSGNode","ContentNode")
     for each objeto in list
@@ -60,3 +64,31 @@ function parseContent(list As Object)
     end for
     return ContentNode_object
 end function
+
+sub asignaFocus()
+if m.top.hasFocus= true then
+m.myRowListOptions.setFocus(true)
+end if
+end sub
+function onKeyEvent(key as String, press as Boolean) as Boolean
+handled = false
+if (not press) then
+    if (key = "OK" ) then
+        if m.myRowListOptions.isInFocusChain()  then
+        m.top.salida=true
+        end if 
+    end if
+end if
+return handled
+end function
+
+sub tituloCambia()
+listaBotones= [
+        {
+            Title:m.top.titulo
+            ContentList: m.botones
+        }
+    ]
+contentBotones = parseContent(listaBotones)
+m.myRowListOptions.content=contentBotones
+end sub 

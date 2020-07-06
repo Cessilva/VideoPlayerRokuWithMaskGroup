@@ -29,11 +29,9 @@ sub onFocusChange()
     if m.top.itemHasFocus or m.top.itemFocused then
         m.frame.color = "#0096d2"
         m.bg.color="#0096d2"
-        m.buttonText.color="ffffff"
     else
         m.frame.color = "#000000"
         m.bg.color="#000000"
-        m.buttonText.color="c2c2c2"
     end if
 end sub
 

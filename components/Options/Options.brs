@@ -44,7 +44,7 @@ Function Init()
     ContentNode.Rating="PG-13"
     ContentNode.ShortDescriptionLine1="Accion y Aventura"
     ContentNode.Description="The transformation accumulation allows node classes to be developed without regard to their absolute pixel coordinates. Instead, each node can be ha"
-    
+    m.top.nodoContenido=ContentNode
     ' Contenido de rowlistCalidades
     calidades=[
       {Title:"Alta"
@@ -142,6 +142,7 @@ if m.top.hasFocus= true then
 m.myRowListButtons.setFocus(true)
 end if
 end sub
+
 
 sub cambioContenido()
 if m.myRowListButtons.letra="Info" then 
